@@ -3,19 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add Company Form - Laravel 9 CRUD</title>
+    <title>Add Post Form - Laravel 9 CRUD</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
+
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
-                    <h2>Add Company</h2>
+                    <h2>Add Category</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('companies.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
                 </div>
             </div>
         </div>
@@ -24,32 +25,30 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('categories.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Name:</strong>
-                        <input type="text" name="name" class="form-control" placeholder="Company Name">
-                        @error('name')
+
+                    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <input type="file" id="upload" />
+                    <audio id="audio" controls>
+                    <source src="" id="src" />
+                    </audio> -->
+                        <strong>Name of Category:</strong>
+                        <input type="text" name="title" class="form-control" placeholder="Name">
+                        @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
+                
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Email:</strong>
-                        <input type="email" name="email" class="form-control" placeholder="Company Email">
-                        @error('email')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Company Address:</strong>
-                        <input type="text" name="address" class="form-control" placeholder="Company Address">
-                        @error('address')
+                        <strong>Short Description:</strong>
+                        <input type="text" name="short_desc" class="form-control" placeholder="Short Desc">
+                        @error('short_desc')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
